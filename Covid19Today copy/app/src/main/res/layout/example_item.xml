@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/textview_border_black"
         android:padding="15dp">
 
         <TextView
@@ -19,9 +21,9 @@
             android:id="@+id/text_view_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_1"
             android:gravity="center"
             android:text="Line1"
-            android:layout_below="@+id/text_view_1"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </RelativeLayout>

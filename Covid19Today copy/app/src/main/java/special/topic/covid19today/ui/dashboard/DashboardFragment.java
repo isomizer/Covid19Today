@@ -33,8 +33,6 @@ public class DashboardFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-
-
     private DashboardViewModel dashboardViewModel;
 
     public static String getChooseName(){
@@ -50,69 +48,53 @@ public class DashboardFragment extends Fragment {
         btnTable = root.findViewById(R.id.radioButtonTable);
         btnGraph = root.findViewById(R.id.radioButtonGraph);
         button = root.findViewById(R.id.button);
+        chooseName = "area";
+        button.setText(getChooseName());
+        SelectFragment(new TableFragment());
 
        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final PopupMenu popupMenu = new PopupMenu(getActivity() , button);
                 popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         chooseName = ""+item.getTitle();
-                        //Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
+                        button.setText(getChooseName());
+                        if(true) {
+                            SelectFragment(new TableFragment());
+                        } else {
+                            SelectFragment(new GraphFragment());
+                        }
 
                         return true;
-
                     }
                 });
                 popupMenu.show();
-
             }
         });
 
-
-
         btnGraph.setOnClickListener(new View.OnClickListener() {
-
-            Fragment seletedFragment;
             public void onClick(View v) {
-                     Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
-                    seletedFragment = new GraphFragment();
-                    fragmentManager = getActivity().getSupportFragmentManager();
-
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment, seletedFragment);
-                    fragmentTransaction.commit();
-
-
-                  //  FragmentTransaction fr = getFragmentManager().beginTransaction();
-                  //  fr.replace(R.id.fragment,new GraphFragment());
-                 //   fr.commit();
-
+                SelectFragment(new GraphFragment());
             }
         });
         btnTable.setOnClickListener(new View.OnClickListener() {
-            Fragment seletedFragment;
             @Override
             public void onClick(View v) {
-                seletedFragment = new TableFragment();
-                fragmentManager =  getActivity().getSupportFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, seletedFragment);
-                fragmentTransaction.commit();
-                   // FragmentTransaction fr = getFragmentManager().beginTransaction();
-             //   fr.remove(new TableFragment);
-              //      fr.replace(R.id.fragment,new TableFragment());
-               //     fr.commit();
-
+                SelectFragment(new TableFragment());
             }
         });
         return root;
+    }
+
+    public void SelectFragment(Fragment fragment) {
+        fragmentManager =  getActivity().getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment, fragment);
+        fragmentTransaction.commit();
     }
 
 

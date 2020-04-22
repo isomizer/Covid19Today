@@ -30,21 +30,15 @@ public class TableFragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutMangager;
 
-
-
     Button button;
 
-
-    String choose="area";
+    public String choose;
 
     private TableViewModel mViewModel;
 
     public static TableFragment newInstance() {
         return new TableFragment();
     }
-
-
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -55,13 +49,9 @@ public class TableFragment extends Fragment {
 
         View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-
-
                                 choose = DashboardFragment.getChooseName();
 
                                 ArrayList<ExampleItem> exampleList = new ArrayList<>();
-
-
 
                                 if(choose.equals("area")) {
                                     Toast.makeText(getActivity().getApplicationContext(), choose, Toast.LENGTH_SHORT).show();
@@ -88,12 +78,7 @@ public class TableFragment extends Fragment {
 
                                     mRecyclerView.setLayoutManager(mLayoutMangager);
                                     mRecyclerView.setAdapter(mAdapter);
-
-
                                 }
-
-
-
 
         return root;
 
