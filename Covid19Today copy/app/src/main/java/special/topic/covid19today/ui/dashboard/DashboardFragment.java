@@ -25,6 +25,7 @@ import special.topic.covid19today.R;
 
 public class DashboardFragment extends Fragment {
 
+    private static String chooseName;
     Button button;
 
     RadioGroup rg;
@@ -32,10 +33,13 @@ public class DashboardFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-    
+
 
     private DashboardViewModel dashboardViewModel;
 
+    public static String getChooseName(){
+        return chooseName;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class DashboardFragment extends Fragment {
         btnGraph = root.findViewById(R.id.radioButtonGraph);
         button = root.findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener() {
+       button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -59,7 +63,9 @@ public class DashboardFragment extends Fragment {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(getActivity().getApplicationContext(), "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        chooseName = ""+item.getTitle();
+                        //Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
+
                         return true;
 
                     }
@@ -71,12 +77,11 @@ public class DashboardFragment extends Fragment {
 
 
 
-
         btnGraph.setOnClickListener(new View.OnClickListener() {
 
             Fragment seletedFragment;
             public void onClick(View v) {
-
+                     Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
                     seletedFragment = new GraphFragment();
                     fragmentManager = getActivity().getSupportFragmentManager();
 

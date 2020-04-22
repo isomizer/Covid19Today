@@ -11,8 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,34 +32,71 @@ public class TableFragment extends Fragment {
 
 
 
+    Button button;
+
+
+    String choose="area";
+
     private TableViewModel mViewModel;
 
     public static TableFragment newInstance() {
         return new TableFragment();
     }
 
+
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+
+        final View root = inflater.inflate(R.layout.fragment_table, container, false);
+
         View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 
-        ArrayList<ExampleItem> exampleList = new ArrayList<>();
-        exampleList.add(new ExampleItem("Bangkok","155"));
-        exampleList.add(new ExampleItem("Nb","1"));
-        exampleList.add(new ExampleItem("aa","122"));
 
-        View root = inflater.inflate(R.layout.fragment_table, container, false);
+                                choose = DashboardFragment.getChooseName();
 
-        mRecyclerView = root.findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutMangager = new LinearLayoutManager(getActivity());
-        mAdapter = new ExampleAdapter(exampleList);
+                                ArrayList<ExampleItem> exampleList = new ArrayList<>();
 
-        mRecyclerView.setLayoutManager(mLayoutMangager);
-        mRecyclerView.setAdapter(mAdapter);
+
+
+                                if(choose.equals("area")) {
+                                    Toast.makeText(getActivity().getApplicationContext(), choose, Toast.LENGTH_SHORT).show();
+                                    exampleList.add(new ExampleItem(choose, "155"));
+                                    exampleList.add(new ExampleItem("Nb", "1"));
+                                    exampleList.add(new ExampleItem("aa", "122"));
+                                    mRecyclerView = root.findViewById(R.id.recycler_view);
+                                    mRecyclerView.setHasFixedSize(true);
+                                    mLayoutMangager = new LinearLayoutManager(getActivity());
+                                    mAdapter = new ExampleAdapter(exampleList);
+
+                                    mRecyclerView.setLayoutManager(mLayoutMangager);
+                                    mRecyclerView.setAdapter(mAdapter);
+                                }
+                                else if(choose.equals("gender")){
+
+                                    exampleList.add(new ExampleItem(choose, "155"));
+                                    exampleList.add(new ExampleItem("Nb", "15555555"));
+                                    exampleList.add(new ExampleItem("aadddd", "122w"));
+                                    mRecyclerView = root.findViewById(R.id.recycler_view);
+                                    mRecyclerView.setHasFixedSize(true);
+                                    mLayoutMangager = new LinearLayoutManager(getActivity());
+                                    mAdapter = new ExampleAdapter(exampleList);
+
+                                    mRecyclerView.setLayoutManager(mLayoutMangager);
+                                    mRecyclerView.setAdapter(mAdapter);
+
+
+                                }
+
+
+
 
         return root;
+
     }
 
 
