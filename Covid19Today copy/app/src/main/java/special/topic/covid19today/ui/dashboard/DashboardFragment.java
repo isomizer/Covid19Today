@@ -26,7 +26,7 @@ import special.topic.covid19today.R;
 public class DashboardFragment extends Fragment {
 
     private static String chooseName;
-    Button button;
+    public static Button button;
 
     RadioGroup rg;
     Button btnTable,btnGraph;
@@ -48,11 +48,10 @@ public class DashboardFragment extends Fragment {
         btnTable = root.findViewById(R.id.radioButtonTable);
         btnGraph = root.findViewById(R.id.radioButtonGraph);
         button = root.findViewById(R.id.button);
-        chooseName = "area";
+        chooseName = "Province";
         button.setText(getChooseName());
-        SelectFragment(new TableFragment());
 
-       button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final PopupMenu popupMenu = new PopupMenu(getActivity() , button);
@@ -63,11 +62,6 @@ public class DashboardFragment extends Fragment {
                     public boolean onMenuItemClick(MenuItem item) {
                         chooseName = ""+item.getTitle();
                         button.setText(getChooseName());
-                        if(true) {
-                            SelectFragment(new TableFragment());
-                        } else {
-                            SelectFragment(new GraphFragment());
-                        }
 
                         return true;
                     }

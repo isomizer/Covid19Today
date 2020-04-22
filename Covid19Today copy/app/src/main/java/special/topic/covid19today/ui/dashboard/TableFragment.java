@@ -32,7 +32,13 @@ public class TableFragment extends Fragment {
 
     Button button;
 
-    public String choose;
+    public static String choose;
+
+    public static String key[] = new String[77];
+    public static String data[] = new String[77];
+
+    public static String data1;
+    public static String data2;
 
     private TableViewModel mViewModel;
 
@@ -44,48 +50,29 @@ public class TableFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-
         final View root = inflater.inflate(R.layout.fragment_table, container, false);
 
         View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-                                choose = DashboardFragment.getChooseName();
+        choose = DashboardFragment.getChooseName();
 
-                                ArrayList<ExampleItem> exampleList = new ArrayList<>();
+        ArrayList<ExampleItem> exampleList = new ArrayList<>();
+        DashboardFetch process = new DashboardFetch();
+        process.execute();
 
-                                if(choose.equals("area")) {
-                                    Toast.makeText(getActivity().getApplicationContext(), choose, Toast.LENGTH_SHORT).show();
-                                    exampleList.add(new ExampleItem(choose, "155"));
-                                    exampleList.add(new ExampleItem("Nb", "1"));
-                                    exampleList.add(new ExampleItem("aa", "122"));
-                                    mRecyclerView = root.findViewById(R.id.recycler_view);
-                                    mRecyclerView.setHasFixedSize(true);
-                                    mLayoutMangager = new LinearLayoutManager(getActivity());
-                                    mAdapter = new ExampleAdapter(exampleList);
-
-                                    mRecyclerView.setLayoutManager(mLayoutMangager);
-                                    mRecyclerView.setAdapter(mAdapter);
-                                }
-                                else if(choose.equals("gender")){
-
-                                    exampleList.add(new ExampleItem(choose, "155"));
-                                    exampleList.add(new ExampleItem("Nb", "15555555"));
-                                    exampleList.add(new ExampleItem("aadddd", "122w"));
-                                    mRecyclerView = root.findViewById(R.id.recycler_view);
-                                    mRecyclerView.setHasFixedSize(true);
-                                    mLayoutMangager = new LinearLayoutManager(getActivity());
-                                    mAdapter = new ExampleAdapter(exampleList);
-
-                                    mRecyclerView.setLayoutManager(mLayoutMangager);
-                                    mRecyclerView.setAdapter(mAdapter);
-                                }
+        Toast.makeText(getActivity().getApplicationContext(), choose, Toast.LENGTH_SHORT).show();
+        for (int i=0; i < data.length; i++) {
+            exampleList.add(new ExampleItem(key[i], data[i]));
+        }
+        mRecyclerView = root.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutMangager = new LinearLayoutManager(getActivity());
+        mAdapter = new ExampleAdapter(exampleList);
+        mRecyclerView.setLayoutManager(mLayoutMangager);
+        mRecyclerView.setAdapter(mAdapter);
 
         return root;
-
     }
-
-
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

@@ -30,17 +30,17 @@ public class HomeFetch extends AsyncTask<Void,Void,Void> {
                 data[0] = data[0] + line;
             }
 
-            JSONObject JA = new JSONObject(data[0]);
+            JSONObject JO = new JSONObject(data[0]);
 
-            data[1] = JA.getString("Confirmed");
-            data[2] = JA.getString("Recovered");
-            data[3] = JA.getString("Hospitalized");
-            data[4] = JA.getString("Deaths");
-            data[5] = JA.getString("NewConfirmed");
-            data[6] = JA.getString("NewRecovered");
-            data[7] = JA.getString("NewHospitalized");
-            data[8] = JA.getString("NewDeaths");
-            data[9] = JA.getString("UpdateDate");
+            data[1] = JO.getString("Confirmed");
+            data[2] = JO.getString("Recovered");
+            data[3] = JO.getString("Hospitalized");
+            data[4] = JO.getString("Deaths");
+            data[5] = JO.getString("NewConfirmed");
+            data[6] = JO.getString("NewRecovered");
+            data[7] = JO.getString("NewHospitalized");
+            data[8] = JO.getString("NewDeaths");
+            data[9] = JO.getString("UpdateDate");
 
 
         } catch (MalformedURLException e) {
