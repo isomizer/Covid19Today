@@ -95,6 +95,13 @@ public class GraphFragment extends Fragment {
                 new DataPoint(54, 2579),
                 new DataPoint(55, 2613),
                 new DataPoint(56, 2643),
+                new DataPoint(57, 2672),
+                new DataPoint(58, 2700),
+                new DataPoint(59, 2733),
+                new DataPoint(60, 2765),
+                new DataPoint(61, 2792),
+                new DataPoint(62, 2811),
+                new DataPoint(63, 2826),
 
 
         });
