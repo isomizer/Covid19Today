@@ -21,7 +21,7 @@ public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
     String data;
     private String pKey[] = new String[77];
     private String pData[];
-    private String c = TableFragment.choose;
+    private String c = TableFragment.chooseName;
 
     @Override
     protected Void doInBackground(Void... voids) {

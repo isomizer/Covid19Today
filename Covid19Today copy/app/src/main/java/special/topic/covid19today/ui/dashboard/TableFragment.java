@@ -32,7 +32,6 @@ public class TableFragment extends Fragment {
 
     Button button;
 
-    public static String choose;
 
     public static String key[] = new String[77];
     public static String data[] = new String[77];
@@ -41,7 +40,7 @@ public class TableFragment extends Fragment {
     public static String data2;
 
     private TableViewModel mViewModel;
-    private static String chooseName;
+    public static String chooseName= "Province";
     public static TableFragment newInstance() {
         return new TableFragment();
     }
@@ -57,10 +56,7 @@ public class TableFragment extends Fragment {
 
         View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        choose = TableFragment.getChooseName();
         button = root.findViewById(R.id.button);
-        button = root.findViewById(R.id.button);
-        chooseName = "Province";
         button.setText(getChooseName());
 
         button.setOnClickListener(new View.OnClickListener() {
