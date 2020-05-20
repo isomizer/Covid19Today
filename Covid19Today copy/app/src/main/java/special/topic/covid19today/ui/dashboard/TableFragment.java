@@ -36,14 +36,12 @@ public class TableFragment extends Fragment {
     public static String key[] = new String[77];
     public static String data[] = new String[77];
 
-    public static String data1;
-    public static String data2;
-
-    private TableViewModel mViewModel;
     public static String chooseName= "Province";
+
     public static TableFragment newInstance() {
         return new TableFragment();
     }
+
     public static String getChooseName(){
         return chooseName;
     }
@@ -78,15 +76,10 @@ public class TableFragment extends Fragment {
             }
         });
 
-
-
         ArrayList<ExampleItem> exampleList = new ArrayList<>();
         DashboardFetch process = new DashboardFetch();
         process.execute();
 
-
-
-        Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
         for (int i=0; i < data.length; i++) {
             exampleList.add(new ExampleItem(key[i], data[i]));
         }
@@ -103,8 +96,6 @@ public class TableFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(TableViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }

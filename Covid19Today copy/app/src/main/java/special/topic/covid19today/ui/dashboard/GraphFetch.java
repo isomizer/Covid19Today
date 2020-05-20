@@ -15,18 +15,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 
-import special.topic.covid19today.ui.home.HomeFragment;
-
-public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
+public class GraphFetch extends AsyncTask<Void,Void,Void> {
     String data;
-    private String pKey[] = new String[77];
-    private String pData[];
-    private String c = TableFragment.chooseName;
+    int c[];
+    int r[];
+    int d[];
+    String cc[];
 
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://covid19.th-stat.com/api/open/cases/sum");
+            URL url = new URL("https://covid19.th-stat.com/api/open/timeline");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -36,18 +35,16 @@ public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
                 line = bufferedReader.readLine();
                 data = data + line;
             }
-
             JSONObject JO = new JSONObject(data);
-            JSONObject JOc = new JSONObject(JO.getString(c));
-            Iterator<String> pKeys = JOc.keys();
-            int pCount = 0;
-            while(pKeys.hasNext()) {
-                pKey[pCount] = pKeys.next();
-                pCount++;
-            }
-            pData = new String[pCount];
-            for (int i=0; i<pCount; i++) {
-                pData[i] = JOc.getString(pKey[i]);
+            JSONArray JA = JO.getJSONArray("Data");
+            c = new int[JA.length()];
+            r = new int[JA.length()];
+            d = new int[JA.length()];
+            for(int i=0; i<JA.length(); i++) {
+                JSONObject jo = JA.getJSONObject(i);
+                c[i] = Integer.parseInt(jo.getString("Confirmed"));
+                r[i] = Integer.parseInt(jo.getString("Recovered"));
+                d[i] = Integer.parseInt(jo.getString("Deaths"));
             }
 
         } catch (MalformedURLException e) {
@@ -65,8 +62,9 @@ public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        TableFragment.key = pKey;
-        TableFragment.data = pData;
+        GraphFragment.cInt = c;
+        GraphFragment.rInt = r;
+        GraphFragment.dInt = d;
 
     }
 }

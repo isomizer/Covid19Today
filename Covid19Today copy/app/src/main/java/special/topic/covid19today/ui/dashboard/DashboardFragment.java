@@ -25,19 +25,12 @@ import special.topic.covid19today.R;
 
 public class DashboardFragment extends Fragment {
 
-    private static String chooseName;
-   // public static Button button;
-
     RadioGroup rg;
     Button btnTable,btnGraph;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
     private DashboardViewModel dashboardViewModel;
-
-    public static String getChooseName(){
-        return chooseName;
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,29 +40,7 @@ public class DashboardFragment extends Fragment {
         rg = root.findViewById(R.id.radios);
         btnTable = root.findViewById(R.id.radioButtonTable);
         btnGraph = root.findViewById(R.id.radioButtonGraph);
-   /*     button = root.findViewById(R.id.button);
-        chooseName = "Province";
-        button.setText(getChooseName());
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final PopupMenu popupMenu = new PopupMenu(getActivity() , button);
-                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        chooseName = ""+item.getTitle();
-                        button.setText(getChooseName());
-
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-*/
         btnGraph.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SelectFragment(new GraphFragment());
