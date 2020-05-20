@@ -41,9 +41,12 @@ public class TableFragment extends Fragment {
     public static String data2;
 
     private TableViewModel mViewModel;
-
+    private static String chooseName;
     public static TableFragment newInstance() {
         return new TableFragment();
+    }
+    public static String getChooseName(){
+        return chooseName;
     }
 
     @Override
@@ -54,13 +57,40 @@ public class TableFragment extends Fragment {
 
         View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        choose = DashboardFragment.getChooseName();
+        choose = TableFragment.getChooseName();
+        button = root.findViewById(R.id.button);
+        button = root.findViewById(R.id.button);
+        chooseName = "Province";
+        button.setText(getChooseName());
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final PopupMenu popupMenu = new PopupMenu(getActivity() , button);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        chooseName = ""+item.getTitle();
+                        button.setText(getChooseName());
+
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+
 
         ArrayList<ExampleItem> exampleList = new ArrayList<>();
         DashboardFetch process = new DashboardFetch();
         process.execute();
 
-        Toast.makeText(getActivity().getApplicationContext(), choose, Toast.LENGTH_SHORT).show();
+
+
+        Toast.makeText(getActivity().getApplicationContext(), chooseName, Toast.LENGTH_SHORT).show();
         for (int i=0; i < data.length; i++) {
             exampleList.add(new ExampleItem(key[i], data[i]));
         }
