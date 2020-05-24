@@ -17,7 +17,7 @@ import special.topic.covid19today.R;
 public class DashboardFragment extends Fragment {
 
     RadioGroup rg;
-    Button btnTable,btnGraph;
+    Button btnTable, btnGraph;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
@@ -48,7 +48,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void SelectFragment(Fragment fragment) {
-        fragmentManager =  getActivity().getSupportFragmentManager();
+        fragmentManager = getActivity().getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment, fragment);
         fragmentTransaction.commit();

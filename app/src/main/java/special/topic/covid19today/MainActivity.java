@@ -2,17 +2,16 @@ package special.topic.covid19today;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import special.topic.covid19today.ui.dashboard.DashboardFetch;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import special.topic.covid19today.ui.dashboard.GraphFetch;
-import special.topic.covid19today.ui.home.HomeFetch;
+import special.topic.covid19today.ui.dashboard.TableFetch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        DashboardFetch tableProcess = new DashboardFetch();
+        TableFetch tableProcess = new TableFetch();
         tableProcess.execute();
         GraphFetch graphProcess = new GraphFetch();
         graphProcess.execute();

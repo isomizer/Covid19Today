@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 
-public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
+public class TableFetch extends AsyncTask<Void,Void,Void>  {
     private String pKey[] = new String[77];
     private String pData[];
     private String gKey[] = new String[77];
