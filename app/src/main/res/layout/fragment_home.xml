@@ -5,12 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
-    android:background="@color/colorDarkGrey"
-    >
-
+    android:background="@color/colorDarkGrey">
 
     <TextView
+        android:id="@+id/text_home_head"
+        android:layout_width="344dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:text="Covid-19 Thailand Status"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#FFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
         android:id="@+id/text_home_1"
         android:layout_width="394dp"
         android:layout_height="147dp"
@@ -23,9 +34,7 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home_head"
-        app:layout_constraintVertical_bias="0.09"
-
-        />
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/text_home_2"
@@ -77,20 +86,5 @@
         app:layout_constraintLeft_toRightOf="@id/text_home_3"
         app:layout_constraintVertical_bias="0.0"
         android:gravity="center" />
-
-    <TextView
-        android:id="@+id/text_home_head"
-        android:layout_width="344dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="32dp"
-        android:text="Covid-19 Thailand Status"
-        android:textSize="30dp"
-        android:textColor="#FFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

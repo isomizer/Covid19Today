@@ -30,17 +30,17 @@ public class HomeFetch extends AsyncTask<Void,Void,Void> {
                 data[0] = data[0] + line;
             }
 
-            JSONObject JA = new JSONObject(data[0]);
+            JSONObject JO = new JSONObject(data[0]);
 
-            data[1] = JA.getString("Confirmed");
-            data[2] = JA.getString("Recovered");
-            data[3] = JA.getString("Hospitalized");
-            data[4] = JA.getString("Deaths");
-            data[5] = JA.getString("NewConfirmed");
-            data[6] = JA.getString("NewRecovered");
-            data[7] = JA.getString("NewHospitalized");
-            data[8] = JA.getString("NewDeaths");
-            data[9] = JA.getString("UpdateDate");
+            data[1] = JO.getString("Confirmed");
+            data[2] = JO.getString("Recovered");
+            data[3] = JO.getString("Hospitalized");
+            data[4] = JO.getString("Deaths");
+            data[5] = JO.getString("NewConfirmed");
+            data[6] = JO.getString("NewRecovered");
+            data[7] = JO.getString("NewHospitalized");
+            data[8] = JO.getString("NewDeaths");
+            data[9] = JO.getString("UpdateDate");
 
 
         } catch (MalformedURLException e) {
@@ -58,7 +58,8 @@ public class HomeFetch extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        HomeFragment.textConfirmed.setText("ยอดผู้ติดเชื้อ:"+data[1]+"\n(เพิ่มขึ้น"+data[5]+")\n"+data[9]);
+        HomeFragment.textHead.setText("Covid-19 Thailand Status\n"+data[9]);
+        HomeFragment.textConfirmed.setText("ยอดผู้ติดเชื้อ:"+data[1]+"\n(เพิ่มขึ้น"+data[5]+")");
         HomeFragment.textRecovered.setText("ยอดผู้เข้ารักษา\n"+data[2]+"\n(เพิ่มขึ้น"+data[6]+")");
         HomeFragment.textHospitalized.setText("ยอดผู้รักษาหายแล้ว\n"+data[3]+"\n(เพิ่มขึ้น"+data[7]+")");
         HomeFragment.textDeaths.setText("ยอดผู้เสียชีวิต\n"+data[4]+"\n(เพิ่มขึ้น"+data[8]+")");

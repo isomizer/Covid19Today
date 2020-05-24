@@ -26,7 +26,6 @@ import special.topic.covid19today.R;
 
 public class EmergencyFragment extends Fragment {
 
-    private EmergencyViewModel emergencyViewModel;
     private static final int REQUEST_CALL = 1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
