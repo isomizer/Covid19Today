@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Covid19Today</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_emergency">Emergency Call</string>
+    <string name="title_chatbot">Chatbot</string>
+</resources>

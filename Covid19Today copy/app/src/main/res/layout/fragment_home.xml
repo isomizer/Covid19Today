@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/colorDarkGrey">
+
+    <TextView
+        android:id="@+id/text_home_head"
+        android:layout_width="344dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:text="Covid-19 Thailand Status"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#FFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_home_1"
+        android:layout_width="394dp"
+        android:layout_height="147dp"
+        android:background="#F8AE24"
+        android:gravity="center"
+        android:textColor="#FFFF"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_head"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <TextView
+        android:id="@+id/text_home_2"
+        android:layout_width="394dp"
+        android:layout_height="147dp"
+        android:background="#FF59FC"
+        android:textColor="#FFFF"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_1"
+        app:layout_constraintVertical_bias="0.079"
+        android:gravity="center" />
+
+    <TextView
+
+        android:id="@+id/text_home_3"
+        android:layout_width="188dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="15dp"
+        android:background="#22971B"
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_2"
+        app:layout_constraintRight_toLeftOf="@id/text_home_4"
+        app:layout_constraintVertical_bias="0.0"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/text_home_4"
+        android:layout_width="188dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="15dp"
+        android:background="#E32828"
+        android:textAlignment="center"
+        android:textColor="#FFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_2"
+        app:layout_constraintLeft_toRightOf="@id/text_home_3"
+        app:layout_constraintVertical_bias="0.0"
+        android:gravity="center" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
