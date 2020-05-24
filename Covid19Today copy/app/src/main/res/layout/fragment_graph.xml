@@ -67,7 +67,7 @@
         android:layout_marginEnd="-6dp"
         android:layout_marginRight="-6dp"
         android:gravity="center"
-        android:text="สีเขียว = ยอดผู่รักษาหายแล้ว"
+        android:text="สีเขียว = ยอดผู้รักษาหายแล้ว"
         android:textColor="#248900"
         android:textSize="26dp" />
 
@@ -86,7 +86,7 @@
         android:layout_marginEnd="-5dp"
         android:layout_marginRight="-5dp"
         android:gravity="center"
-        android:text="สัแดง = ยอดผู้เดสียชีวิต"
+        android:text="สีแดง = ยอดผู้เสียชีวิต"
         android:textColor="#F00"
         android:textSize="26dp" />
 
