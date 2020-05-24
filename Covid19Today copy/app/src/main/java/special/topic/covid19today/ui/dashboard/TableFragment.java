@@ -28,8 +28,12 @@ public class TableFragment extends Fragment {
 
     Button button;
 
-    public static String key[] = new String[77];
-    public static String data[] = new String[77];
+    public static String pKey[] = new String[77];
+    public static String pData[] = new String[77];
+    public static String gKey[] = new String[77];
+    public static String gData[] = new String[77];
+    public static String nKey[] = new String[77];
+    public static String nData[] = new String[77];
 
     public static String chooseName= "Province";
 
@@ -54,8 +58,6 @@ public class TableFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_table, container, false);
 
-        System.out.println("Table---------"+key [0]);
-
         button = root.findViewById(R.id.button);
         button.setText(getChooseName());
 
@@ -67,6 +69,15 @@ public class TableFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        String key[] = new String[77];
+        String data[] = new String[77];
+
+        switch (getChooseName()) {
+            case "Province": key = pKey; data = pData; break;
+            case "Gender": key = gKey; data = gData; break;
+            case "Nation": key = nKey; data = nData; break;
+        }
 
         for (int i=0; i < data.length; i++) {
             exampleList.add(new ExampleItem(key[i], data[i]));
@@ -90,10 +101,16 @@ public class TableFragment extends Fragment {
                         chooseName = (String) item.getTitle();
                         button.setText(getChooseName());
 
-                        DashboardFetch process = new DashboardFetch();
-                        process.execute();
-
                         clear(exampleList);
+
+                        String key[] = new String[77];
+                        String data[] = new String[77];
+
+                        switch (getChooseName()) {
+                            case "Province": key = pKey; data = pData; break;
+                            case "Gender": key = gKey; data = gData; break;
+                            case "Nation": key = nKey; data = nData; break;
+                        }
 
                         for (int i=0; i < data.length; i++) {
                             exampleList.add(new ExampleItem(key[i], data[i]));
