@@ -7,8 +7,6 @@
     android:orientation="vertical"
     tools:context=".ui.dashboard.DashboardFragment">
 
-
-
     <RadioGroup
         android:id="@+id/radios"
         android:layout_width="fill_parent"
@@ -30,13 +28,13 @@
             android:id="@+id/radioButtonGraph"
             android:layout_width="199dp"
             android:layout_height="wrap_content"
-            android:text="Graph" />
+            android:text="Graph" />s
 
     </RadioGroup>
 
     <fragment
         android:id="@+id/fragment"
-        android:name="special.topic.covid19today.ui.dashboard.GraphFragment"
+        android:name="special.topic.covid19today.ui.dashboard.TableFragment"
         tools:layout="@layout/fragment_graph"
         android:layout_width="match_parent"
         android:layout_height="0dp"

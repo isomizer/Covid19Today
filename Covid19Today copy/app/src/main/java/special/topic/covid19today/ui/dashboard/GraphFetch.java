@@ -13,10 +13,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Iterator;
 
 public class GraphFetch extends AsyncTask<Void,Void,Void> {
-    String data;
     int c[];
     int r[];
     int d[];
@@ -29,7 +27,7 @@ public class GraphFetch extends AsyncTask<Void,Void,Void> {
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            data = "";
+            String data = "";
             while(line != null){
                 line = bufferedReader.readLine();
                 data = data + line;

@@ -2,7 +2,6 @@ package special.topic.covid19today.ui.dashboard;
 
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,23 +14,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 
-import special.topic.covid19today.ui.home.HomeFragment;
-
 public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
-    String data;
     private String pKey[] = new String[77];
     private String pData[];
-    private String c = TableFragment.chooseName;
 
     @Override
     protected Void doInBackground(Void... voids) {
+        String c = TableFragment.chooseName;
         try {
             URL url = new URL("https://covid19.th-stat.com/api/open/cases/sum");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            data = "";
+            String data = "";
             while(line != null){
                 line = bufferedReader.readLine();
                 data = data + line;
@@ -67,6 +63,5 @@ public class DashboardFetch extends AsyncTask<Void,Void,Void>  {
 
         TableFragment.key = pKey;
         TableFragment.data = pData;
-
     }
 }

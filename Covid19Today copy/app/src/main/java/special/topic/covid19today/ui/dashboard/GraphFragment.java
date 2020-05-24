@@ -1,29 +1,20 @@
 package special.topic.covid19today.ui.dashboard;
 
 
-import androidx.lifecycle.ViewModelProviders;
-
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import android.graphics.Color;
 
 import special.topic.covid19today.R;
-import special.topic.covid19today.ui.home.HomeFetch;
 
 
 public class GraphFragment extends Fragment {
@@ -44,9 +35,6 @@ public class GraphFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_graph, container, false);
 
-        GraphFetch process = new GraphFetch();
-        process.execute();
-
         graph = root.findViewById(R.id.graph_1);
 
         return root;
@@ -55,7 +43,7 @@ public class GraphFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        // TODO: Use the ViewModel
+
         DataPoint p1[] = new DataPoint[cInt.length];
         DataPoint p2[] = new DataPoint[rInt.length];
         DataPoint p3[] = new DataPoint[dInt.length];

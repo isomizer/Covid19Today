@@ -1,24 +1,18 @@
 package special.topic.covid19today.ui.dashboard;
 
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupMenu;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -30,10 +24,9 @@ public class TableFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutMangager;
+    private RecyclerView.LayoutManager mLayoutMannager;
 
     Button button;
-
 
     public static String key[] = new String[77];
     public static String data[] = new String[77];
@@ -51,13 +44,17 @@ public class TableFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_table, container, false);
 
-        DashboardFetch process = new DashboardFetch();
-        process.execute();
+        System.out.println("Table---------"+key [0]);
 
         button = root.findViewById(R.id.button);
         button.setText(getChooseName());
@@ -74,10 +71,11 @@ public class TableFragment extends Fragment {
         for (int i=0; i < data.length; i++) {
             exampleList.add(new ExampleItem(key[i], data[i]));
         }
+
         mRecyclerView.setHasFixedSize(true);
-        mLayoutMangager = new LinearLayoutManager(getActivity());
+        mLayoutMannager = new LinearLayoutManager(getActivity());
         mAdapter = new ExampleAdapter(exampleList);
-        mRecyclerView.setLayoutManager(mLayoutMangager);
+        mRecyclerView.setLayoutManager(mLayoutMannager);
         mRecyclerView.setAdapter(mAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -92,17 +90,17 @@ public class TableFragment extends Fragment {
                         chooseName = (String) item.getTitle();
                         button.setText(getChooseName());
 
-                        clear(exampleList);
-
                         DashboardFetch process = new DashboardFetch();
                         process.execute();
+
+                        clear(exampleList);
 
                         for (int i=0; i < data.length; i++) {
                             exampleList.add(new ExampleItem(key[i], data[i]));
                         }
 
                         mAdapter.notifyDataSetChanged();
-                        mRecyclerView.setLayoutManager(mLayoutMangager);
+                        mRecyclerView.setLayoutManager(mLayoutMannager);
                         mRecyclerView.setAdapter(mAdapter);
 
                         return true;

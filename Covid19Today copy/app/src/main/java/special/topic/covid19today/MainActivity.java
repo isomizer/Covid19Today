@@ -10,6 +10,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import special.topic.covid19today.ui.dashboard.DashboardFetch;
+import special.topic.covid19today.ui.dashboard.GraphFetch;
+import special.topic.covid19today.ui.home.HomeFetch;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        HomeFetch homeProcess = new HomeFetch();
+        homeProcess.execute();
+        DashboardFetch tableProcess = new DashboardFetch();
+        tableProcess.execute();
+        GraphFetch graphProcess = new GraphFetch();
+        graphProcess.execute();
     }
 
 }
