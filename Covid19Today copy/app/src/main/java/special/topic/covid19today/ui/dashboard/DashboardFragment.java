@@ -38,6 +38,8 @@ public class DashboardFragment extends Fragment {
         rg = root.findViewById(R.id.radios);
         btnTable = root.findViewById(R.id.radioButtonTable);
         btnGraph = root.findViewById(R.id.radioButtonGraph);
+        SelectFragment(new TableFragment());
+        SelectFragment(new GraphFragment());
 
         btnGraph.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
