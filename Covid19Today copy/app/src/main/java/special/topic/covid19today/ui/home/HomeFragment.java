@@ -29,6 +29,9 @@ public class HomeFragment extends Fragment {
         textDeaths = root.findViewById(R.id.text_home_4);
         textHead = root.findViewById(R.id.text_home_head);
 
+        HomeFetch homeProcess = new HomeFetch();
+        homeProcess.execute();
+
         return root;
     }
 }

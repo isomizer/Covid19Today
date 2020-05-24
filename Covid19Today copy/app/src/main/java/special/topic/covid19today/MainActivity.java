@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        HomeFetch homeProcess = new HomeFetch();
-        homeProcess.execute();
         DashboardFetch tableProcess = new DashboardFetch();
         tableProcess.execute();
         GraphFetch graphProcess = new GraphFetch();
