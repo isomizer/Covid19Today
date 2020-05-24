@@ -13,8 +13,7 @@ import special.topic.covid19today.R;
 public class ChatbotFragment extends Fragment {
 
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_chatbot, container, false);
         return root;
     }
