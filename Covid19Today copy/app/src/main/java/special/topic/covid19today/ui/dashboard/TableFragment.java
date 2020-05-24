@@ -1,7 +1,9 @@
 package special.topic.covid19today.ui.dashboard;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +40,8 @@ public class TableFragment extends Fragment {
 
     public static String chooseName= "Province";
 
+    ArrayList<ExampleItem> exampleList = new ArrayList<>();
+
     public static TableFragment newInstance() {
         return new TableFragment();
     }
@@ -50,12 +54,31 @@ public class TableFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        final View root = inflater.inflate(R.layout.fragment_table, container, false);
+        View root = inflater.inflate(R.layout.fragment_table, container, false);
 
-        View root2 = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        DashboardFetch process = new DashboardFetch();
+        process.execute();
 
         button = root.findViewById(R.id.button);
         button.setText(getChooseName());
+
+        mRecyclerView = root.findViewById(R.id.recycler_view);
+
+        return root;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        for (int i=0; i < data.length; i++) {
+            exampleList.add(new ExampleItem(key[i], data[i]));
+        }
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutMangager = new LinearLayoutManager(getActivity());
+        mAdapter = new ExampleAdapter(exampleList);
+        mRecyclerView.setLayoutManager(mLayoutMangager);
+        mRecyclerView.setAdapter(mAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +89,21 @@ public class TableFragment extends Fragment {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        chooseName = ""+item.getTitle();
+                        chooseName = (String) item.getTitle();
                         button.setText(getChooseName());
+
+                        clear(exampleList);
+
+                        DashboardFetch process = new DashboardFetch();
+                        process.execute();
+
+                        for (int i=0; i < data.length; i++) {
+                            exampleList.add(new ExampleItem(key[i], data[i]));
+                        }
+
+                        mAdapter.notifyDataSetChanged();
+                        mRecyclerView.setLayoutManager(mLayoutMangager);
+                        mRecyclerView.setAdapter(mAdapter);
 
                         return true;
                     }
@@ -75,27 +111,12 @@ public class TableFragment extends Fragment {
                 popupMenu.show();
             }
         });
-
-        ArrayList<ExampleItem> exampleList = new ArrayList<>();
-        DashboardFetch process = new DashboardFetch();
-        process.execute();
-
-        for (int i=0; i < data.length; i++) {
-            exampleList.add(new ExampleItem(key[i], data[i]));
-        }
-        mRecyclerView = root.findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutMangager = new LinearLayoutManager(getActivity());
-        mAdapter = new ExampleAdapter(exampleList);
-        mRecyclerView.setLayoutManager(mLayoutMangager);
-        mRecyclerView.setAdapter(mAdapter);
-
-        return root;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public  void clear(ArrayList<ExampleItem> data) {
+        int size = data.size();
+        data.clear();
+        mAdapter.notifyItemRangeRemoved(0, size);
     }
 
 }

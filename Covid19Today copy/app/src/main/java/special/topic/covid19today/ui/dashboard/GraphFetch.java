@@ -20,7 +20,6 @@ public class GraphFetch extends AsyncTask<Void,Void,Void> {
     int c[];
     int r[];
     int d[];
-    String cc[];
 
     @Override
     protected Void doInBackground(Void... voids) {

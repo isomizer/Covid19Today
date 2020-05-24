@@ -30,8 +30,6 @@ public class DashboardFragment extends Fragment {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-    private DashboardViewModel dashboardViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -46,6 +44,7 @@ public class DashboardFragment extends Fragment {
                 SelectFragment(new GraphFragment());
             }
         });
+
         btnTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +60,4 @@ public class DashboardFragment extends Fragment {
         fragmentTransaction.replace(R.id.fragment, fragment);
         fragmentTransaction.commit();
     }
-
-
 }

@@ -31,12 +31,10 @@ public class GraphFragment extends Fragment {
 
     public static com.jjoe64.graphview.GraphView graph;
 
-    private GraphViewModel mViewModel;
     public static int cInt[] = new int[0];
     public static int rInt[] = new int[0];
     public static int dInt[] = new int[0];
-    public static String t;
-    DataPoint p;
+
     public static GraphFragment newInstance() {
         return new GraphFragment();
     }
@@ -51,27 +49,6 @@ public class GraphFragment extends Fragment {
 
         graph = root.findViewById(R.id.graph_1);
 
-        DataPoint p1[] = new DataPoint[cInt.length];
-        DataPoint p2[] = new DataPoint[rInt.length];
-        DataPoint p3[] = new DataPoint[dInt.length];
-        LineGraphSeries<DataPoint> series;
-        for (int i=0; i<cInt.length; i++) {
-            p1[i] = new DataPoint(i, cInt[i]);
-            p2[i] = new DataPoint(i, rInt[i]);
-            p3[i] = new DataPoint(i, dInt[i]);
-        }
-        series = new LineGraphSeries<DataPoint>(p1);
-        series.setColor(Color.BLUE);
-        graph.addSeries(series);
-        series = new LineGraphSeries<DataPoint>(p2);
-        series.setColor(Color.GREEN);
-        graph.addSeries(series);
-        series = new LineGraphSeries<DataPoint>(p3);
-        series.setColor(Color.RED);
-        graph.addSeries(series);
-        graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMaxX(cInt.length);
-
         return root;
     }
 
@@ -79,7 +56,26 @@ public class GraphFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // TODO: Use the ViewModel
+        DataPoint p1[] = new DataPoint[cInt.length];
+        DataPoint p2[] = new DataPoint[rInt.length];
+        DataPoint p3[] = new DataPoint[dInt.length];
+        LineGraphSeries<DataPoint> series;
+
+        for (int i=0; i<cInt.length; i++) {
+            p1[i] = new DataPoint(i, cInt[i]);
+            p2[i] = new DataPoint(i, rInt[i]);
+            p3[i] = new DataPoint(i, dInt[i]);
+        }
+        series = new LineGraphSeries(p1);
+        series.setColor(Color.BLUE);
+        graph.addSeries(series);
+        series = new LineGraphSeries(p2);
+        series.setColor(Color.GREEN);
+        graph.addSeries(series);
+        series = new LineGraphSeries(p3);
+        series.setColor(Color.RED);
+        graph.addSeries(series);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMaxX(cInt.length);
     }
-
-
 }

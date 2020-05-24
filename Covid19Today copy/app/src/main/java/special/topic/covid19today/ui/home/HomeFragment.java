@@ -16,14 +16,11 @@ import special.topic.covid19today.R;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
-    public static  TextView textConfirmed;
-    public static  TextView textRecovered;
-    public static  TextView textHospitalized;
-    public static  TextView textDeaths;
-    public static  TextView textHead;
-    public static  TextView textUpdatedDate;
-
+    public static TextView textConfirmed;
+    public static TextView textRecovered;
+    public static TextView textHospitalized;
+    public static TextView textDeaths;
+    public static TextView textHead;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,8 +31,10 @@ public class HomeFragment extends Fragment {
         textHospitalized = root.findViewById(R.id.text_home_3);
         textDeaths = root.findViewById(R.id.text_home_4);
         textHead = root.findViewById(R.id.text_home_head);
+
         HomeFetch process = new HomeFetch();
         process.execute();
+
         return root;
     }
 }
