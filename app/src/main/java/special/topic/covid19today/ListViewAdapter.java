@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
-    private ArrayList<ExampleItem> mExampleList;
+public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.ExampleViewHolder> {
+    private ArrayList<ListViewItem> mExampleList;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
         public TextView mTextView1;
@@ -24,7 +24,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         }
     }
 
-    public ExampleAdapter(ArrayList<ExampleItem> exampleList){
+    public ListViewAdapter(ArrayList<ListViewItem> exampleList){
         mExampleList = exampleList;
     }
 
@@ -40,7 +40,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        ExampleItem currentItem = mExampleList.get(position);
+        ListViewItem currentItem = mExampleList.get(position);
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
 

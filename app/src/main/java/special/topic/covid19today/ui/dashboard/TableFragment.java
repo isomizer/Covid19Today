@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import special.topic.covid19today.ExampleAdapter;
-import special.topic.covid19today.ExampleItem;
+import special.topic.covid19today.ListViewAdapter;
+import special.topic.covid19today.ListViewItem;
 import special.topic.covid19today.R;
 
 public class TableFragment extends Fragment {
@@ -37,7 +37,7 @@ public class TableFragment extends Fragment {
 
     public static String chooseName= "Province";
 
-    ArrayList<ExampleItem> exampleList = new ArrayList<>();
+    ArrayList<ListViewItem> exampleList = new ArrayList<>();
 
     public static TableFragment newInstance() {
         return new TableFragment();
@@ -80,12 +80,12 @@ public class TableFragment extends Fragment {
         }
 
         for (int i=0; i < data.length; i++) {
-            exampleList.add(new ExampleItem(key[i], data[i]));
+            exampleList.add(new ListViewItem(key[i], data[i]));
         }
 
         mRecyclerView.setHasFixedSize(true);
         mLayoutMannager = new LinearLayoutManager(getActivity());
-        mAdapter = new ExampleAdapter(exampleList);
+        mAdapter = new ListViewAdapter(exampleList);
         mRecyclerView.setLayoutManager(mLayoutMannager);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -113,7 +113,7 @@ public class TableFragment extends Fragment {
                         }
 
                         for (int i=0; i < data.length; i++) {
-                            exampleList.add(new ExampleItem(key[i], data[i]));
+                            exampleList.add(new ListViewItem(key[i], data[i]));
                         }
 
                         mAdapter.notifyDataSetChanged();
@@ -128,7 +128,7 @@ public class TableFragment extends Fragment {
         });
     }
 
-    public  void clear(ArrayList<ExampleItem> data) {
+    public  void clear(ArrayList<ListViewItem> data) {
         int size = data.size();
         data.clear();
         mAdapter.notifyItemRangeRemoved(0, size);

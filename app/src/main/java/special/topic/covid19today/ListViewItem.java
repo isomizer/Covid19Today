@@ -1,10 +1,10 @@
 package special.topic.covid19today;
 
-public class ExampleItem {
+public class ListViewItem {
     private String mText1;
     private String mText2;
 
-    public ExampleItem(String text1,String text2){
+    public ListViewItem(String text1, String text2){
         mText1 = text1;
         mText2 = text2;
     }
