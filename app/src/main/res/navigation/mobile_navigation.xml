@@ -25,6 +25,6 @@
     <fragment
         android:id="@+id/navigation_chatbot"
         android:name="special.topic.covid19today.ui.chatbot.ChatbotFragment"
-        android:label="fragment_chatbot"
+        android:label="@string/title_chatbot"
         tools:layout="@layout/fragment_chatbot" />
 </navigation>

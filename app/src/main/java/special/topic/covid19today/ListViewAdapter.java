@@ -32,7 +32,7 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.Exampl
     @NonNull
     @Override
     public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item,parent,false);
         ExampleViewHolder evh = new ExampleViewHolder(v);
         return evh;
 
