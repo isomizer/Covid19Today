@@ -24,6 +24,12 @@
 
     onLoad: function(instance) {
       instance.render();
+      instance.updateCSSVariables({
+        'BASE-font-family': '"Times New Roman", Times, serif',
+        '$focus': '#00ff00',
+        '$hover-primary': '#00ff00',
+        '$interactive-01': '#008000'
+      });
     }
   };
 
