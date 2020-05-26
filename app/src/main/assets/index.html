@@ -1,12 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<style>
-  .chatElement {
-    height: 600px;
-    width: 100%;
-  }
-</style>
+    <meta name="viewport" content="width=320; initial-scale=0.9; maximum-scale=1.0; user-scalable=0;" />
 </head>
 <body class="chatElement">
 <script>
@@ -25,13 +20,16 @@
     // Make the window open by default.
     openChatByDefault: true,
 
+    carbonTheme: 'g90',
+
     onLoad: function(instance) {
       instance.render();
     }
   };
 
-  setTimeout(function(){const t=document.createElement('script');
-  t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js';document.head.appendChild(t);});
+  setTimeout(function(){const run=document.createElement('script');
+  run.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js';
+  document.head.appendChild(run);});
 </script>
 </body>
 </html>

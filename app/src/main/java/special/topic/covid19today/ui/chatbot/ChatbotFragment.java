@@ -17,7 +17,6 @@ public class ChatbotFragment extends Fragment {
 
     protected WebView webView;
     private static final String ENROLLMENT_URL = "file:///android_asset/index.html";
-    //private static final String ENROLLMENT_URL = "https://www.google.co.th/";
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_chatbot, container, false);
