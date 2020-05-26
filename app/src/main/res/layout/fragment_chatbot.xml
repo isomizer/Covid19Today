@@ -14,5 +14,13 @@
         android:layout_height="wrap_content"
         android:text="Chatbot"
         tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="288dp" />
+        tools:layout_editor_absoluteY="288dp"
+        tools:ignore="MissingConstraints" />
+
+    <WebView
+        android:id="@+id/local_dialog_webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
