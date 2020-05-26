@@ -44,6 +44,7 @@ public class DashboardFragment extends Fragment {
                 SelectFragment(new TableFragment());
             }
         });
+
         return root;
     }
 
