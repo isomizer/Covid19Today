@@ -54,37 +54,37 @@
     <TextView
 
         android:id="@+id/text_home_3"
-        android:layout_width="188dp"
-        android:layout_height="117dp"
+        android:layout_width="156dp"
+        android:layout_height="83dp"
         android:layout_marginTop="15dp"
         android:background="#22971B"
-        android:textSize="20sp"
+        android:gravity="center"
         android:textColor="#FFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintRight_toLeftOf="@id/text_home_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home_2"
-        app:layout_constraintRight_toLeftOf="@id/text_home_4"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center" />
+        app:layout_constraintVertical_bias="0.014" />
 
     <TextView
         android:id="@+id/text_home_4"
-        android:layout_width="188dp"
-        android:layout_height="117dp"
+        android:layout_width="154dp"
+        android:layout_height="85dp"
         android:layout_marginTop="15dp"
         android:background="#E32828"
+        android:gravity="center"
         android:textAlignment="center"
         android:textColor="#FFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintLeft_toRightOf="@id/text_home_3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home_2"
-        app:layout_constraintLeft_toRightOf="@id/text_home_3"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
