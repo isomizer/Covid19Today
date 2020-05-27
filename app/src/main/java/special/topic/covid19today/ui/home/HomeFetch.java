@@ -49,7 +49,7 @@ public class HomeFetch extends AsyncTask<Void,Void,Void> {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+    }
 
         return null;
     }
