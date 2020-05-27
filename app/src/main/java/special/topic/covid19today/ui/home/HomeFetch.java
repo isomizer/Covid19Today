@@ -59,7 +59,7 @@ public class HomeFetch extends AsyncTask<Void,Void,Void> {
         super.onPostExecute(aVoid);
 
         HomeFragment.textHead.setText("Covid-19 Thailand Status\n"+data[9]);
-        HomeFragment.textConfirmed.setText("ยอดผู้ติดเชื้อ"+data[1]+"\n(เพิ่มขึ้น"+data[5]+")");
+        HomeFragment.textConfirmed.setText("ยอดผู้ติดเชื้อ\n"+data[1]+"\n(เพิ่มขึ้น"+data[5]+")");
         HomeFragment.textRecovered.setText("ยอดผู้เข้ารักษา\n"+data[2]+"\n(เพิ่มขึ้น"+data[6]+")");
         HomeFragment.textHospitalized.setText("ยอดผู้รักษาหายแล้ว\n"+data[3]+"\n(เพิ่มขึ้น"+data[7]+")");
         HomeFragment.textDeaths.setText("ยอดผู้เสียชีวิต\n"+data[4]+"\n(เพิ่มขึ้น"+data[8]+")");
