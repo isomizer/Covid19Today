@@ -1,5 +1,6 @@
 package special.topic.covid19today.ui.chatbot;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class ChatbotFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_chatbot, container, false);
 
         webView = root.findViewById(R.id.local_dialog_webview);
+        webView.setBackgroundColor(Color.TRANSPARENT);
         webView.setWebViewClient(new WebViewClient());
 
         WebSettings webSettings = webView.getSettings();

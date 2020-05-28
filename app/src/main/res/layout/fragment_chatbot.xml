@@ -10,6 +10,7 @@
         android:id="@+id/local_dialog_webview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@color/Gray_90"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
